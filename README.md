@@ -9,7 +9,7 @@ How is GDP per capita associated with life expectancy, and how well can economic
 
 ## Project links
 
-- **[View the original notebook on GitHub](world_bank_life_expectancy.ipynb)** — visitors can read it without editing.
+- **[View the notebook on GitHub](world_bank_life_expectancy.ipynb)** — visitors can read it without editing.
 - **[Open the read-only Colab copy](https://colab.research.google.com/drive/1V4OqpheECEK47VhAJdFNf3ScyUok_inj)** — access verified as “anyone with the link: reader” on October 30, 2026.
 
 ## Data and analysis
@@ -26,11 +26,11 @@ The notebook uses Python (pandas, NumPy, matplotlib, scikit-learn) for data prep
 | Random Forest | 1.95 |
 | Tuned Random Forest | 1.93 |
 
-These figures come from the original course notebook. They do not establish causality or guarantee generalization to new countries or future years.
+These figures come from the course notebook. They do not establish causality or guarantee generalization to new countries or future years.
 
 ## Repository layout
 
-- `world_bank_life_expectancy.ipynb`: original notebook, unchanged.
+- `world_bank_life_expectancy.ipynb`: course notebook (identical to the read-only Colab copy).
 - `src/data.py`: wide-to-long reshaping, indicator merging and year filtering.
 - `src/modeling.py`: feature engineering and regression evaluation.
 - `tests/`: small tests for the extracted helpers.
@@ -48,4 +48,4 @@ pip install -r requirements.txt
 python -m pytest
 ```
 
-The extracted helpers are standalone utilities and the original notebook has not been refactored to import them. See [methodology and limitations](docs/methodology.md).
+The extracted helpers are standalone utilities and the notebook has not been refactored to import them. See [methodology and limitations](docs/methodology.md).
