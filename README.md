@@ -1,28 +1,24 @@
 # Economic Development and Life Expectancy | World Bank Data
 
 **Author:** Juan Díaz  
-**Project:** Data Science II — Coderhouse (2026)  
-**[Open the notebook in Google Colab](https://colab.research.google.com/drive/1N3rm2gzG9-hM8SBQndbO89il0SeA3Dt-)**
+**Course:** Data Science II — Coderhouse (2026)
 
 ## Research question
 
-How is GDP per capita associated with life expectancy across countries, and how well can economic, demographic, and temporal variables predict life expectancy?
+How is GDP per capita associated with life expectancy, and how well can economic, demographic, and temporal indicators predict life expectancy across countries?
 
-## Dataset
+## Project links
 
-Public World Bank indicators:
-- GDP per capita (PPP)
-- Life expectancy
-- Population
-- Literacy (examined during data preparation)
+- **[View the original notebook on GitHub](world_bank_life_expectancy.ipynb)** — visitors can read it without editing.
+- **[Open the read-only Colab copy](https://colab.research.google.com/drive/1V4OqpheECEK47VhAJdFNf3ScyUok_inj)** — access verified as “anyone with the link: reader” on October 30, 2026.
 
-## Methods
+## Data and analysis
 
-Python, pandas, NumPy, matplotlib, and scikit-learn.
+Source: World Bank, World Development Indicators. Indicators include GDP per capita (PPP), life expectancy, population, and literacy (examined during preparation).
 
-The notebook covers data preparation and merging, exploratory analysis, visualization, regression models, model comparison, cross-validation, and hyperparameter tuning.
+The notebook uses Python (pandas, NumPy, matplotlib, scikit-learn) for data preparation, exploratory data analysis, visualizations, regression modeling, cross-validation, and Random Forest hyperparameter tuning.
 
-## Reported model performance
+## Reported results
 
 | Model | Test MAE (years) |
 | --- | ---: |
@@ -30,19 +26,26 @@ The notebook covers data preparation and merging, exploratory analysis, visualiz
 | Random Forest | 1.95 |
 | Tuned Random Forest | 1.93 |
 
-These results are from the notebook's evaluation setup, and are not guarantees of accuracy on unseen countries or later years.
+These figures come from the original course notebook. They do not establish causality or guarantee generalization to new countries or future years.
 
-## Limitations
+## Repository layout
 
-- The analysis is observational; associations do not establish causation.
-- Multiple observations for each country across years can appear in randomly split training and test sets. Grouped country-based and time-based evaluation should be tested.
-- Coverage and missingness vary by indicator and country.
-- The original notebook downloads input CSVs from Google Drive; execution depends on continued access to those files.
+- `world_bank_life_expectancy.ipynb`: original notebook, unchanged.
+- `src/data.py`: wide-to-long reshaping, indicator merging and year filtering.
+- `src/modeling.py`: feature engineering and regression evaluation.
+- `tests/`: small tests for the extracted helpers.
+- `docs/methodology.md`: limitations and reproducibility notes.
+- `requirements.txt`: dependencies.
 
-## How to run
+## Running the project
 
-Open `world_bank_life_expectancy.ipynb` in Jupyter or Google Colab and run the cells in order.
+Open the notebook in Google Colab or Jupyter. Its source CSVs are fetched from Drive links within the notebook and must be accessible to reproduce its analysis.
 
-## Source
+To run the extracted modules' tests from the repository root:
 
-World Bank, World Development Indicators. See the notebook for data processing and analysis.
+```bash
+pip install -r requirements.txt
+python -m pytest
+```
+
+The extracted helpers are standalone utilities and the original notebook has not been refactored to import them. See [methodology and limitations](docs/methodology.md).
